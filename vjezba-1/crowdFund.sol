@@ -13,7 +13,6 @@ contract CrowdFund {
     }
     
     mapping(uint => Campaign) public campaigns;
-    // camapignId => (contributor address => amount)
     mapping(uint => mapping(address => uint)) public contributions;
     uint public campaignIdCounter;
 
@@ -105,6 +104,7 @@ contract CrowdFund {
         if (block.timestamp >= campaign.deadline) {
             return 0;
         }
+        
         return campaign.deadline - block.timestamp;
     }
 
